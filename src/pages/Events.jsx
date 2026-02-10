@@ -1,5 +1,5 @@
 import React from 'react';
-import './Events.css';
+import { FaLaptopCode, FaTools, FaLeaf, FaRobot, FaShieldAlt, FaChalkboardTeacher, FaBolt, FaCodeBranch, FaSatellite, FaUsers } from 'react-icons/fa';
 
 const events = [
   {
@@ -8,37 +8,45 @@ const events = [
     format: 'District-level tech carnival',
     activities: [
       'Scratch coding challenges',
-      '"Take Apart" sessions (disassembling old electronics)',
+      '"Take Apart" sessions',
       'Vernacular digital literacy workshops'
     ],
-    impact: 'Introduces 10,000+ rural students to tech annually.'
+    impact: 'Introduces 10,000+ rural students to tech annually.',
+    icon: FaLaptopCode,
+    color: 'from-blue-500 to-cyan-400'
   },
   {
     title: 'Build for Bharat Hackathon',
     stage: 'Intermediate',
-    theme: 'Solving local problems (e.g., waste management, farm tech)',
+    theme: 'Solving local problems',
     unique: [
-      'Bilingual problem statements (English + regional language)',
-      'Winners get incubation support from Atal Innovation Mission'
-    ]
+      'Bilingual problem statements',
+      'Incubation support from AIM'
+    ],
+    icon: FaTools,
+    color: 'from-indigo-500 to-purple-500'
   },
   {
     title: 'AI for Villages Challenge',
     stage: 'Advanced',
     task: [
-      'Detecting crop diseases using smartphone images',
-      'Translating govt. schemes to local dialects'
+      'Crop disease detection',
+      'Govt. scheme translation'
     ],
-    prize: "Deployment support via NIC's Bhashini platform"
+    prize: "Deployment via NIC's Bhashini",
+    icon: FaLeaf,
+    color: 'from-green-500 to-emerald-400'
   },
   {
     title: 'National Hardware Olympiad',
     stage: 'Advanced/Expert',
     rounds: [
-      'Virtual circuit design (Tinkercad)',
-      'On-site build-a-thon (Arduino/RPi kits provided)'
+      'Virtual circuit design',
+      'On-site build-a-thon'
     ],
-    partner: "IITs' robotics labs"
+    partner: "IITs' robotics labs",
+    icon: FaRobot,
+    color: 'from-orange-500 to-red-500'
   },
   {
     title: 'Cyber Yodha Bootcamp',
@@ -46,240 +54,155 @@ const events = [
     curriculum: [
       'Ethical hacking basics',
       'Aadhaar data privacy drills',
-      'Capture The Flag (CTF) with Bharat-specific scenarios'
+      'Capture The Flag (CTF)'
     ],
-    certification: 'MeitY-approved "Cyber Warrior" badge'
+    certification: 'MeitY-approved "Cyber Warrior"',
+    icon: FaShieldAlt,
+    color: 'from-red-500 to-pink-600'
   },
   {
     title: 'BNS Future Skills Conclave',
     audience: 'Teachers/Policymakers',
     highlights: [
-      'Demo of stage-wise learning kits',
-      'Panel on integrating AI into NCERT textbooks',
-      'Live coding session by 12-year-old prodigies'
-    ]
+      'Demo of learning kits',
+      'Panel on AI in NCERT',
+      'Live coding by prodigies'
+    ],
+    icon: FaChalkboardTeacher,
+    color: 'from-yellow-400 to-orange-400'
   },
   {
-    title: 'Rashtriya Vidhyut Yantrik Competition',
+    title: 'Rashtriya Vidhyut Yantrik',
     stage: 'Expert/Master',
     challenge: [
       'Low-cost solar microgrids',
       'EV battery swap prototypes'
     ],
-    judges: 'Engineers from ISRO/DRDO'
+    judges: 'Engineers from ISRO/DRDO',
+    icon: FaBolt,
+    color: 'from-yellow-300 to-yellow-500'
   },
   {
     title: 'Open Source Bharat Fest',
     stage: 'Professional',
     activities: [
-      'Translate GitHub docs to Indian languages',
-      'Contribute to IndiaStack projects',
-      '"1 PR = 1 Tree Planted" drive'
-    ]
+      'Translate GitHub docs',
+      'IndiaStack contributions',
+      '"1 PR = 1 Tree Planted"'
+    ],
+    icon: FaCodeBranch,
+    color: 'from-gray-400 to-gray-600'
   },
   {
     title: 'BNS SpaceTech Hack',
     partner: 'IN-SPACe',
     dataset: "ISRO's open satellite imagery",
     tracks: [
-      'Disaster prediction models',
-      'Village-level urban planning tools'
-    ]
+      'Disaster prediction',
+      'Village urban planning'
+    ],
+    icon: FaSatellite,
+    color: 'from-indigo-400 to-blue-600'
   },
   {
-    title: 'Guru-Shishya Parampara Tech Summit',
+    title: 'Guru-Shishya Parmpara Summit',
     unique: [
-      'Stage 6 professionals mentor Stage 3 learners',
-      'Reverse mentoring (kids teach seniors about GenAI)',
-      'Live project deployment in adopted villages'
-    ]
+      'Stage 6 mentors Stage 3',
+      'Reverse mentoring on GenAI',
+      'Village project deployment'
+    ],
+    icon: FaUsers,
+    color: 'from-orange-400 to-red-400'
   }
 ];
 
-const differentiators = [
-  'Bharat-Centric: Vernacular tracks, low-bandwidth options',
-  'Progression-Linked: Events align with BNS stages',
-  'Govt-Startup Synergy: Winners fast-tracked into AIM/Startup India programs'
-];
-
-const EventCard = ({ event }) => {
-  return (
-    <div className="event-card">
-      <div className="event-header">
-        <h2 className="event-title">{event.title}</h2>
-        {event.stage && <span className="event-stage">Stage: {event.stage}</span>}
-        {event.audience && <span className="event-audience">Audience: {event.audience}</span>}
-      </div>
-
-      <div className="event-details">
-        {event.format && <div className="event-detail"><span className="detail-label">Format:</span> {event.format}</div>}
-        {event.theme && <div className="event-detail"><span className="detail-label">Theme:</span> {event.theme}</div>}
-        {event.partner && <div className="event-detail"><span className="detail-label">Partner:</span> {event.partner}</div>}
-        {event.dataset && <div className="event-detail"><span className="detail-label">Dataset:</span> {event.dataset}</div>}
-        {event.impact && <div className="event-detail impact"><span className="detail-label">Impact:</span> {event.impact}</div>}
-        {event.judges && <div className="event-detail"><span className="detail-label">Judges:</span> {event.judges}</div>}
-        {event.prize && <div className="event-detail prize"><span className="detail-label">Prize:</span> {event.prize}</div>}
-        {event.certification && <div className="event-detail certification"><span className="detail-label">Certification:</span> {event.certification}</div>}
-      </div>
-
-      <div className="event-content">
-        {event.activities && (
-          <div className="event-section">
-            <h3 className="section-title">Activities</h3>
-            <ul className="event-list">
-              {event.activities.map((activity, index) => (
-                <li key={index} className="event-list-item">
-                  <span className="list-icon">•</span>
-                  {activity}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {event.unique && (
-          <div className="event-section">
-            <h3 className="section-title">Unique Features</h3>
-            <ul className="event-list">
-              {event.unique.map((item, index) => (
-                <li key={index} className="event-list-item">
-                  <span className="list-icon">•</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {event.task && (
-          <div className="event-section">
-            <h3 className="section-title">Tasks</h3>
-            <ul className="event-list">
-              {event.task.map((task, index) => (
-                <li key={index} className="event-list-item">
-                  <span className="list-icon">•</span>
-                  {task}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {event.rounds && (
-          <div className="event-section">
-            <h3 className="section-title">Rounds</h3>
-            <ul className="event-list">
-              {event.rounds.map((round, index) => (
-                <li key={index} className="event-list-item">
-                  <span className="list-icon">•</span>
-                  {round}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {event.curriculum && (
-          <div className="event-section">
-            <h3 className="section-title">Curriculum</h3>
-            <ul className="event-list">
-              {event.curriculum.map((item, index) => (
-                <li key={index} className="event-list-item">
-                  <span className="list-icon">•</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {event.highlights && (
-          <div className="event-section">
-            <h3 className="section-title">Highlights</h3>
-            <ul className="event-list">
-              {event.highlights.map((highlight, index) => (
-                <li key={index} className="event-list-item">
-                  <span className="list-icon">•</span>
-                  {highlight}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {event.challenge && (
-          <div className="event-section">
-            <h3 className="section-title">Challenge</h3>
-            <ul className="event-list">
-              {event.challenge.map((item, index) => (
-                <li key={index} className="event-list-item">
-                  <span className="list-icon">•</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {event.tracks && (
-          <div className="event-section">
-            <h3 className="section-title">Tracks</h3>
-            <ul className="event-list">
-              {event.tracks.map((track, index) => (
-                <li key={index} className="event-list-item">
-                  <span className="list-icon">•</span>
-                  {track}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-const Differentiators = () => {
-  return (
-    <div className="differentiators-section">
-      <h2 className="differentiators-title">What Makes BNS Events Unique?</h2>
-      <ul className="differentiators-list">
-        {differentiators.map((item, index) => (
-          <li key={index} className="differentiator-item">
-            <span className="differentiator-icon">✨</span>
-            {item}
-          </li>
-        ))}
-      </ul>
-      <div className="example-box">
-        <strong>Example:</strong> A Stage 2 student wins "Build for Bharat" → Gets scholarship for Stage 3 advanced labs → Launches agri-tech startup by Stage 6.
-      </div>
-    </div>
-  );
-};
-
 const Events = () => {
   return (
-    <div className="events-page">
-      <div className="events-container">
-        <div className="events-header">
-          <h1 className="events-title">BNS Impact Events</h1>
-          <p className="events-description">
-            10 unique, Bharat-centric events to accelerate skill development and innovation across all stages. 
-            Each event is designed to inspire, empower, and connect learners, educators, and innovators nationwide.
+    <div className="min-h-screen bg-black pt-32 pb-20 px-4 sm:px-6 lg:px-8 font-sans">
+      <div className="max-w-7xl mx-auto space-y-12">
+
+        <div className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="inline-block px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-semibold mb-4">
+            Innovation & Impact
+          </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+            Impact <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Events</span>
+          </h1>
+          <p className="text-xl text-gray-400">
+            10 unique, Bharat-centric events to accelerate skill development and innovation across all stages.
           </p>
         </div>
 
-        <div className="events-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {events.map((event, index) => (
-            <EventCard key={index} event={event} />
+            <div
+              key={index}
+              className="group bg-neutral-900 border border-gray-800 rounded-3xl p-6 hover:border-gray-700 transition-all duration-300 hover:-translate-y-2 flex flex-col"
+            >
+              <div className="flex items-start justify-between mb-6">
+                <div className={`p-3 rounded-xl bg-gradient-to-br ${event.color} text-white text-xl shadow-lg`}>
+                  <event.icon />
+                </div>
+                {event.stage && (
+                  <span className="px-3 py-1 rounded-full bg-gray-800 text-gray-300 text-xs font-bold border border-gray-700">
+                    {event.stage}
+                  </span>
+                )}
+              </div>
+
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                {event.title}
+              </h3>
+
+              <div className="space-y-3 flex-1">
+                {event.format && <p className="text-sm text-gray-400"><strong className="text-gray-300">Format:</strong> {event.format}</p>}
+                {event.theme && <p className="text-sm text-gray-400"><strong className="text-gray-300">Theme:</strong> {event.theme}</p>}
+                {event.impact && <p className="text-sm text-gray-400 italic border-l-2 border-green-500 pl-3">{event.impact}</p>}
+
+                {(event.activities || event.unique || event.tracks || event.highlights || event.rounds || event.task || event.challenge)?.slice(0, 3).map((item, i) => (
+                  <div key={i} className="flex items-start gap-2 text-sm text-gray-500">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-700 flex-shrink-0" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-gray-800 flex justify-between items-center text-sm">
+                <span className="text-blue-400 font-bold cursor-pointer group-hover:opacity-80 transition-opacity">Details →</span>
+              </div>
+            </div>
           ))}
         </div>
 
-        <Differentiators />
+        {/* Differentiators */}
+        <div className="bg-neutral-900 border border-gray-800 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-white mb-6">What Makes BNS Unique?</h2>
+              <ul className="space-y-4">
+                {[
+                  'Bharat-Centric: Vernacular tracks, low-bandwidth options',
+                  'Progression-Linked: Events align with BNS stages',
+                  'Govt-Startup Synergy: Winners fast-tracked into AIM programs'
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-4 text-gray-300 bg-black/50 p-4 rounded-xl border border-gray-800">
+                    <span className="text-xl">✨</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-blue-900/40 to-purple-900/40 p-8 rounded-2xl border border-blue-500/20 backdrop-blur-sm">
+              <h3 className="text-xl font-bold text-white mb-2">Success Story Example</h3>
+              <p className="text-blue-100 leading-relaxed italic">
+                "A Stage 2 student wins 'Build for Bharat' → Gets scholarship for Stage 3 advanced labs → Launches agri-tech startup by Stage 6."
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Events; 
+export default Events;

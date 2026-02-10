@@ -30,14 +30,14 @@ const ProtectedRoute = ({ children }) => {
 
 function App() {
   const [language, setLanguage] = useState('en')
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
 
   return (
     <>
       <ScrollToTop />
       <div className={`app ${darkMode ? 'dark-mode' : ''}`}>
-        <Header 
-          language={language} 
+        <Header
+          language={language}
           setLanguage={setLanguage}
           darkMode={darkMode}
           setDarkMode={setDarkMode}
@@ -55,13 +55,13 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/stages" element={<Stages />} />
             <Route path="/stages/:stageId" element={<StageDetails />} />
-            <Route 
-              path="/dashboard" 
+            <Route
+              path="/dashboard"
               element={
                 <ProtectedRoute>
                   <Dashboard />
                 </ProtectedRoute>
-              } 
+              }
             />
             <Route
               path="/add-student"
